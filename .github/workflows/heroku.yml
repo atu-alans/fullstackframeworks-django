@@ -8,7 +8,9 @@ jobs:
       steps:
         - name: Checkout
           uses: actions/checkout@v2
-        - name: Deploy django to heroku
+        - name: Deploy django to herok
+          env:
+            SECRET_KEY: ${{ secrets.SECRET_KEY }}
           uses: nyakaz73/heroku-django-deploy@v0.68 
           with: 
             heroku_app_name : ${{ secrets.HEROKU_APP_NAME }}
