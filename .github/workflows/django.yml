@@ -16,6 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
+      env: 
+        SECRET_KEY: mg%o-)0mc4@la#1(0ybcs2kqu*7k&6==^)1nvxfr3z4h^@1lc8
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
