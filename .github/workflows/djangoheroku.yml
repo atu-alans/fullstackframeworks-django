@@ -1,9 +1,7 @@
 name: Django Heroku
 on:
   push:
-    branches: [ developement ]
-  pull_request:
-    branches: [ developement ]
+    branches: [ "master" ]
 jobs:
   release:
     runs-on: ubuntu-latest
