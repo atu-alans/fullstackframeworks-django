@@ -1,0 +1,38 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Tests
+      run: |
+        python manage.py test
+        
+    - name: Python Django + MySQL Coverage GitHub Action
+  # You may pin to the exact commit or the version.
+  # uses: SaadBazaz/django-coveragepy-github-action@2cdfb7b9a3c98dc969c55a0b66d36db1dcc6ae66
+      uses: SaadBazaz/django-coveragepy-github-action@2.6
+      with:
+    # Application
+        django-app: eezipcmotorcycles
+    # Minimum allowed code coverage
+        minimum-coverage: 10
