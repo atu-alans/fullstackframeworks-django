@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Userorders, SingleOrder
 
-# Register your models here.
+# Register your models here....
 
 
 class OrderSingleItemAdministration(admin.TabularInline):
