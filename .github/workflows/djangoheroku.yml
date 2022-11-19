@@ -1,4 +1,5 @@
-name: Django Heroku:
+name: Django Heroku
+on:
   push:
     branches: [ developement ]
   pull_request:
